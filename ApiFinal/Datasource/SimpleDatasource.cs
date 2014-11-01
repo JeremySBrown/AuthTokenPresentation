@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
@@ -10,6 +11,11 @@ namespace ApiFinal.Datasource
 {
     public class SimpleDatasourceContext : DbContext
     {
+        public SimpleDatasourceContext()
+        {
+            Debug.Write(Database.Connection.ConnectionString);
+        }
+
         public DbSet<User> Users { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }

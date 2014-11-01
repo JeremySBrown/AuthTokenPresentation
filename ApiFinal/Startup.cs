@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
+using ApiFinal.Datasource;
+using ApiFinal.Migrations;
 using ApiFinal.Providers;
 using Microsoft.Owin;
 using Microsoft.Owin.Cors;
@@ -17,6 +20,7 @@ namespace ApiFinal
     {
         public void Configuration(IAppBuilder app)
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<SimpleDatasourceContext, Configuration>()); 
             ConfigureOAuth(app);
 
             HttpConfiguration configuration = new HttpConfiguration();
