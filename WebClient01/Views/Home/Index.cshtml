@@ -1,0 +1,245 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+
+
+    <form id="signInForm" class="form-signin" role="form">
+        <h2 class="form-signin-heading">Please sign in to test API</h2>
+        <p>
+            <input id="userName" class="form-control" placeholder="User Name" required autofocus>
+        </p>
+        <p>
+            <input id="password" type="password" class="form-control" placeholder="Password" required>
+        </p>
+
+
+        <button id="signInButton" class="btn btn-lg btn-primary" type="submit">Sign in</button>
+
+    </form>
+
+    <h4>Need API URI for test</h4>
+    <div>
+        <p>
+            <input id="tokenUri" type="text" placeholder="Token URI" class="form-control" value="http://localhost:58455" />
+        </p>
+    </div>
+    <hr />
+    <h2>Sample Data API</h2>
+    <button id="apiCallButton" class="btn btn-lg btn-default" onclick="makeAPICall()">Make API Call</button>
+    <h3>Log: <span id="timerOutput"></span></h3>
+    <div id="logOutput"></div>
+    <button class="btn btn-default btn-sm" onclick="clearLog()">clear</button>
+
+
+</div> <!-- /container -->
+@section script
+{
+    <script>
+        var token = {};
+        var log = "";
+        var tokenLifeTime = 0;
+        var timerInterval;
+
+        $(function () {
+
+            toastr.options = {
+                positionClass: "toast-bottom-full-width"
+            };
+        });
+
+        $("#signInForm").submit(function (e) {
+            e.preventDefault();
+            var tokenUri = $("#tokenUri").val() + "/token";
+            var data = {
+                grant_type: "password",
+                userName: $("#userName").val(),
+                password: $("#password").val(),
+                client_id: "webclient01"
+            };
+
+            logInfo("Logging In...");
+            var posting = $.post(tokenUri, data);
+
+            posting.done(function (result) {
+                startTimer();
+                token = result;
+                logSuccess("We Have a Token!");
+                logInfo("<strong>Access Token:</strong> " + token.access_token);
+                logInfo("<strong>Refresh Token:</strong> " + token.refresh_token);
+            });
+
+            posting.fail(function (result) {
+                if (result.responseJSON) {
+                    logError(result.responseJSON.error_description);
+                    return;
+                }
+
+                if (result.status == 0 && result.statusText == "error") {
+                    logError("Web Client is not allowed to request access token");
+                }
+            });
+
+        });
+
+        function logInWithRefreshToken(callback) {
+            var tokenUri = $("#tokenUri").val() + "/token";
+            var data = {
+                grant_type: "refresh_token",
+                refresh_token: token.refresh_token,
+                client_id: "webclient01"
+            };
+
+            logInfo("Requesting new Access Token from Refresh Token.");
+            var posting = $.post(tokenUri, data);
+
+            posting.done(function (result) {
+                resetTimer();
+                token = result;
+                logSuccess("We Have a REFRESHED Token: ");
+                logInfo("<strong>Access Token:</strong> " + token.access_token);
+                logInfo("<strong>Refresh Token:</strong> " + token.refresh_token);
+                if (callback) {
+                    callback();
+                }
+            });
+
+            posting.fail(function (result) {
+                if (result.responseJSON) {
+                    if (result.status == 400) {
+                        stopTimer();
+                        logError("Refresh Token has expired! User Must Log In again!");
+                    } else {
+                        logError(result.responseJSON.error);
+                    }
+                    return;
+                }
+
+                if (result.error) {
+                    logError("Unexpected Error");
+                }
+
+            });
+        }
+
+        function makeAPICall() {
+            var uri = $("#tokenUri").val() + "/api/sampledata";
+            var settings = {
+                headers: {
+                    Authorization: "bearer " + token.access_token
+                }
+            };
+
+            var apiCall = $.ajax(uri, settings);
+            apiCall.done(function (result) {
+                logSuccess("We Have Data!!!");
+                for (d in result) {
+                    logInfo(result[d].value);
+                }
+            });
+
+            apiCall.fail(function (result) {
+
+                if (result.responseJSON) {
+                    if (result.status == 401 &&
+                        token.refresh_token) {
+                        logError("Access Token has expired!");
+                        logInWithRefreshToken(makeAPICall);
+                    } else {
+                        logError(result.responseJSON.message);
+                    }
+                    return;
+                }
+
+                if (result.error) {
+                    logError("Unexpected Error");
+                }
+
+
+            });
+        }
+
+        function logError(value) {
+            writeLog('error', value, true);
+        }
+
+        function logSuccess(value) {
+            writeLog('success', value, true);
+        }
+
+        function logInfo(value) {
+            writeLog('info', value, false);
+        }
+
+        function logInfo(value) {
+            writeLog('info', value, false);
+        }
+
+        function logWarning(value) {
+            writeLog('warning', value, false);
+        }
+
+        function writeLog(type, value, showToast) {
+            var textClass;
+            switch (type) {
+                case "error":
+                    textClass = "text-danger";
+                    break;
+                case "success":
+                    textClass = "text-success";
+                    break;
+                case "warning":
+                    textClass = "text-warning";
+                    break;
+                default:
+                    textClass = "text-info";
+                    break;
+            }
+
+            log += '<p class="lead ' + textClass + '">' + value + "<p>";
+            $("#logOutput").html(log);
+
+            if (showToast) {
+                //toastr[type](value);
+            }
+        }
+
+        function clearLog() {
+            log = "";
+            $("#logOutput").html(log);
+        }
+
+        function startTimer() {
+
+            if (timerInterval) {
+                resetTimer();
+                return;
+            }
+
+            tokenLifeTime = 0;
+            timerInterval = setInterval(function () {
+                tokenLifeTime++;
+                $("#timerOutput").html(tokenLifeTime);
+
+                if (tokenLifeTime == 10) {
+                    logWarning("Access token has expired.");
+                }
+
+                if (tokenLifeTime == 20) {
+                    logWarning("Refresh token has expired");
+                }
+
+            }, 1000);
+        }
+
+        function resetTimer() {
+            tokenLifeTime = 0;
+        }
+
+        function stopTimer() {
+            clearInterval(timerInterval);
+        }
+
+    </script>
+}

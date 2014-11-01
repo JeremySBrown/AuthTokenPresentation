@@ -1,0 +1,164 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=27C6674B91C41D44BD98DA08C9BDF841/@KeyIndexDefined">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=27C6674B91C41D44BD98DA08C9BDF841/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=27C6674B91C41D44BD98DA08C9BDF841/Description/@EntryValue">Auth Talk CustomRefreshTokenProvider Class</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=27C6674B91C41D44BD98DA08C9BDF841/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=27C6674B91C41D44BD98DA08C9BDF841/Scope/=139FF4CE89E7094686FDA7BF5FFBBE92/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=27C6674B91C41D44BD98DA08C9BDF841/Scope/=139FF4CE89E7094686FDA7BF5FFBBE92/Type/@EntryValue">Everywhere</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=27C6674B91C41D44BD98DA08C9BDF841/Shortcut/@EntryValue">atcustomrefreshtokenprovider</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=27C6674B91C41D44BD98DA08C9BDF841/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=27C6674B91C41D44BD98DA08C9BDF841/Text/@EntryValue">public class CustomRefreshTokenProvider : IAuthenticationTokenProvider&#xD;
+    {&#xD;
+        public void Create(AuthenticationTokenCreateContext context)&#xD;
+        {&#xD;
+            throw new System.NotImplementedException();&#xD;
+        }&#xD;
+&#xD;
+        public async Task CreateAsync(AuthenticationTokenCreateContext context)&#xD;
+        {&#xD;
+            var clientId = context.Ticket.Properties.Dictionary["as:client_id"];&#xD;
+&#xD;
+            if (string.IsNullOrEmpty(clientId))&#xD;
+            {&#xD;
+                return;&#xD;
+            }&#xD;
+&#xD;
+            var refreshTokenId = Guid.NewGuid().ToString("n");&#xD;
+            var refreshTokenLifeTime = context.OwinContext.Get&lt;string&gt;("as:clientRefreshTokenLifeTime");&#xD;
+&#xD;
+            var token = new RefreshToken&#xD;
+                        {&#xD;
+                            Id = PasswordHelper.HashString(refreshTokenId),&#xD;
+                            ClientId = clientId,&#xD;
+                            Subject = context.Ticket.Identity.Name,&#xD;
+                            IssuedUtc = DateTime.UtcNow,&#xD;
+                            ExpiresUtc = DateTime.UtcNow.AddSeconds(Convert.ToDouble(refreshTokenLifeTime))&#xD;
+                        };&#xD;
+&#xD;
+            context.Ticket.Properties.IssuedUtc = token.IssuedUtc;&#xD;
+            context.Ticket.Properties.ExpiresUtc = token.ExpiresUtc;&#xD;
+&#xD;
+            token.ProtectedTicket = context.SerializeTicket();&#xD;
+&#xD;
+            var result = await SimpleIdentityManager.StoreRefreshToken(token);&#xD;
+&#xD;
+            if (result)&#xD;
+            {&#xD;
+                context.SetToken(refreshTokenId);&#xD;
+            }&#xD;
+        }&#xD;
+&#xD;
+        public void Receive(AuthenticationTokenReceiveContext context)&#xD;
+        {&#xD;
+            throw new System.NotImplementedException();&#xD;
+        }&#xD;
+&#xD;
+        public async Task ReceiveAsync(AuthenticationTokenReceiveContext context)&#xD;
+        {&#xD;
+            var allowOrigin = context.OwinContext.Get&lt;string&gt;("as:clientAllowedOrigin");&#xD;
+            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new []{allowOrigin});&#xD;
+&#xD;
+            string hashTokenId = PasswordHelper.HashString(context.Token);&#xD;
+&#xD;
+            var refreshToken = await SimpleIdentityManager.FindRefreshToken(hashTokenId);&#xD;
+            if (refreshToken != null)&#xD;
+            {&#xD;
+                context.DeserializeTicket(refreshToken.ProtectedTicket);&#xD;
+                var result = await SimpleIdentityManager.DeleteRefreshToken(hashTokenId);&#xD;
+            }&#xD;
+        }&#xD;
+    }</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=4D388D666204E242A88EB7C3FABADFF9/@KeyIndexDefined">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=4D388D666204E242A88EB7C3FABADFF9/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=4D388D666204E242A88EB7C3FABADFF9/Description/@EntryValue">Auth Talk Overloads for refresh tokens</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=4D388D666204E242A88EB7C3FABADFF9/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=4D388D666204E242A88EB7C3FABADFF9/Scope/=139FF4CE89E7094686FDA7BF5FFBBE92/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=4D388D666204E242A88EB7C3FABADFF9/Scope/=139FF4CE89E7094686FDA7BF5FFBBE92/Type/@EntryValue">Everywhere</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=4D388D666204E242A88EB7C3FABADFF9/Shortcut/@EntryValue">atgrantrefreshtoken</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=4D388D666204E242A88EB7C3FABADFF9/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=4D388D666204E242A88EB7C3FABADFF9/Text/@EntryValue">public override Task TokenEndpoint(OAuthTokenEndpointContext context)&#xD;
+        {&#xD;
+            foreach (KeyValuePair&lt;string, string&gt; property in context.Properties.Dictionary)&#xD;
+            {&#xD;
+                context.AdditionalResponseParameters.Add(property.Key, property.Value);&#xD;
+            }&#xD;
+&#xD;
+            return Task.FromResult&lt;object&gt;(null);&#xD;
+        }&#xD;
+&#xD;
+        public async override Task GrantRefreshToken(OAuthGrantRefreshTokenContext context)&#xD;
+        {&#xD;
+            var originalClient = context.Ticket.Properties.Dictionary["as:client_id"];&#xD;
+            var currentClient = context.ClientId;&#xD;
+&#xD;
+            if (originalClient != currentClient)&#xD;
+            {&#xD;
+                context.SetError("invalid_clientId", "Refresh token not valid for the current client");&#xD;
+                return;&#xD;
+            }&#xD;
+&#xD;
+            // Refresh Identity&#xD;
+            var userName = context.Ticket.Properties.Dictionary["userName"];&#xD;
+            var user = await SimpleIdentityManager.FindUserAsync(userName);&#xD;
+            if (user == null)&#xD;
+            {&#xD;
+                context.SetError("invalid_grant", "User does not exist");&#xD;
+                return;&#xD;
+            }&#xD;
+            &#xD;
+            var claimsIdentity = new ClaimsIdentity(context.Options.AuthenticationType);&#xD;
+            claimsIdentity.AddClaim(new Claim("sub", userName));&#xD;
+            foreach (var role in user.Roles)&#xD;
+            {&#xD;
+                claimsIdentity.AddClaim(new Claim(ClaimTypes.Role, role));&#xD;
+            }&#xD;
+&#xD;
+            var roles = string.Join(",", user.Roles.Select(r =&gt; r).ToArray());&#xD;
+            &#xD;
+            &#xD;
+&#xD;
+            var props = new AuthenticationProperties(new Dictionary&lt;string, string&gt;&#xD;
+                                                     {&#xD;
+                                                         {&#xD;
+                                                             "as:client_id", context.ClientId ?? string.Empty&#xD;
+                                                         },&#xD;
+                                                         {&#xD;
+                                                             "userName", userName&#xD;
+                                                         },&#xD;
+                                                         {&#xD;
+                                                             "role", roles&#xD;
+                                                         }&#xD;
+                                                     });&#xD;
+            var ticket = new AuthenticationTicket(claimsIdentity, props);&#xD;
+&#xD;
+            context.Validated(ticket);&#xD;
+&#xD;
+        }</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=724F11309D284C4BAF68548D8EA0E3AD/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=724F11309D284C4BAF68548D8EA0E3AD/Shortcut/@EntryValue">atdemogrant</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=724F11309D284C4BAF68548D8EA0E3AD/Description/@EntryValue">Auth Talk Demo basic grant and client</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=724F11309D284C4BAF68548D8EA0E3AD/Text/@EntryValue">public override Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)&#xD;
+        {&#xD;
+            context.Validated();&#xD;
+            return Task.FromResult(0);&#xD;
+        }&#xD;
+&#xD;
+        public override Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)&#xD;
+        {&#xD;
+            if (context.Password != "123abc")&#xD;
+            {&#xD;
+                context.SetError("invalid_grant", "The user name or password is incorrect.");&#xD;
+                return Task.FromResult(0);&#xD;
+            }&#xD;
+&#xD;
+            var identity = new ClaimsIdentity(context.Options.AuthenticationType);&#xD;
+            identity.AddClaim(new Claim("sub",context.UserName));&#xD;
+            context.Validated(identity);&#xD;
+&#xD;
+            return Task.FromResult(0);&#xD;
+        }</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=724F11309D284C4BAF68548D8EA0E3AD/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=724F11309D284C4BAF68548D8EA0E3AD/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=724F11309D284C4BAF68548D8EA0E3AD/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=724F11309D284C4BAF68548D8EA0E3AD/Scope/=139FF4CE89E7094686FDA7BF5FFBBE92/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=724F11309D284C4BAF68548D8EA0E3AD/Scope/=139FF4CE89E7094686FDA7BF5FFBBE92/Type/@EntryValue">Everywhere</s:String></wpf:ResourceDictionary>
