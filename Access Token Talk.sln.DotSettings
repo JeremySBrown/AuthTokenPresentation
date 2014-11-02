@@ -1,17 +1,40 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=24602B13A51BBC4BBA0DBD8EFC2C0DC1/@KeyIndexDefined">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=24602B13A51BBC4BBA0DBD8EFC2C0DC1/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=24602B13A51BBC4BBA0DBD8EFC2C0DC1/Description/@EntryValue">Auth Talk Init Database</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=24602B13A51BBC4BBA0DBD8EFC2C0DC1/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=24602B13A51BBC4BBA0DBD8EFC2C0DC1/Scope/=139FF4CE89E7094686FDA7BF5FFBBE92/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=24602B13A51BBC4BBA0DBD8EFC2C0DC1/Scope/=139FF4CE89E7094686FDA7BF5FFBBE92/Type/@EntryValue">Everywhere</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=24602B13A51BBC4BBA0DBD8EFC2C0DC1/Shortcut/@EntryValue">atdbinit</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=24602B13A51BBC4BBA0DBD8EFC2C0DC1/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=24602B13A51BBC4BBA0DBD8EFC2C0DC1/Text/@EntryValue">Database.SetInitializer(new MigrateDatabaseToLatestVersion&lt;SimpleDatasourceContext, Configuration&gt;()); </s:String>
 	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=27C6674B91C41D44BD98DA08C9BDF841/@KeyIndexDefined">True</s:Boolean>
 	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=27C6674B91C41D44BD98DA08C9BDF841/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=27C6674B91C41D44BD98DA08C9BDF841/Categories/=Imported_002011_002F1_002F2014/@EntryIndexedValue">Imported 11/1/2014</s:String>
 	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=27C6674B91C41D44BD98DA08C9BDF841/Description/@EntryValue">Auth Talk CustomRefreshTokenProvider Class</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=27C6674B91C41D44BD98DA08C9BDF841/Field/=DatasourceUsing/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=27C6674B91C41D44BD98DA08C9BDF841/Field/=DatasourceUsing/Expression/@EntryValue">getDefaultNamespace()</s:String>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=27C6674B91C41D44BD98DA08C9BDF841/Field/=DatasourceUsing/Order/@EntryValue">0</s:Int64>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=27C6674B91C41D44BD98DA08C9BDF841/Field/=NameSpace/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=27C6674B91C41D44BD98DA08C9BDF841/Field/=NameSpace/Expression/@EntryValue">fileDefaultNamespace()</s:String>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=27C6674B91C41D44BD98DA08C9BDF841/Field/=NameSpace/Order/@EntryValue">1</s:Int64>
 	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=27C6674B91C41D44BD98DA08C9BDF841/Reformat/@EntryValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=27C6674B91C41D44BD98DA08C9BDF841/Scope/=139FF4CE89E7094686FDA7BF5FFBBE92/@KeyIndexDefined">True</s:Boolean>
 	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=27C6674B91C41D44BD98DA08C9BDF841/Scope/=139FF4CE89E7094686FDA7BF5FFBBE92/Type/@EntryValue">Everywhere</s:String>
 	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=27C6674B91C41D44BD98DA08C9BDF841/Shortcut/@EntryValue">atcustomrefreshtokenprovider</s:String>
 	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=27C6674B91C41D44BD98DA08C9BDF841/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
-	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=27C6674B91C41D44BD98DA08C9BDF841/Text/@EntryValue">public class CustomRefreshTokenProvider : IAuthenticationTokenProvider&#xD;
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=27C6674B91C41D44BD98DA08C9BDF841/Text/@EntryValue">using System;&#xD;
+using System.Threading.Tasks;&#xD;
+using $DatasourceUsing$.Datasource;&#xD;
+using Microsoft.Owin.Security.Infrastructure;&#xD;
+&#xD;
+namespace $NameSpace$&#xD;
+{&#xD;
+    public class CustomRefreshTokenProvider : IAuthenticationTokenProvider&#xD;
     {&#xD;
         public void Create(AuthenticationTokenCreateContext context)&#xD;
         {&#xD;
-            throw new System.NotImplementedException();&#xD;
+            throw new NotImplementedException();&#xD;
         }&#xD;
 &#xD;
         public async Task CreateAsync(AuthenticationTokenCreateContext context)&#xD;
@@ -32,7 +55,7 @@
                             ClientId = clientId,&#xD;
                             Subject = context.Ticket.Identity.Name,&#xD;
                             IssuedUtc = DateTime.UtcNow,&#xD;
-                            ExpiresUtc = DateTime.UtcNow.AddSeconds(Convert.ToDouble(refreshTokenLifeTime))&#xD;
+                            ExpiresUtc = DateTime.UtcNow.AddMinutes(Convert.ToDouble(refreshTokenLifeTime))&#xD;
                         };&#xD;
 &#xD;
             context.Ticket.Properties.IssuedUtc = token.IssuedUtc;&#xD;
@@ -50,13 +73,13 @@
 &#xD;
         public void Receive(AuthenticationTokenReceiveContext context)&#xD;
         {&#xD;
-            throw new System.NotImplementedException();&#xD;
+            throw new NotImplementedException();&#xD;
         }&#xD;
 &#xD;
         public async Task ReceiveAsync(AuthenticationTokenReceiveContext context)&#xD;
         {&#xD;
             var allowOrigin = context.OwinContext.Get&lt;string&gt;("as:clientAllowedOrigin");&#xD;
-            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new []{allowOrigin});&#xD;
+            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] {allowOrigin});&#xD;
 &#xD;
             string hashTokenId = PasswordHelper.HashString(context.Token);&#xD;
 &#xD;
@@ -67,9 +90,12 @@
                 var result = await SimpleIdentityManager.DeleteRefreshToken(hashTokenId);&#xD;
             }&#xD;
         }&#xD;
-    }</s:String>
+    }&#xD;
+}&#xD;
+</s:String>
 	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=4D388D666204E242A88EB7C3FABADFF9/@KeyIndexDefined">True</s:Boolean>
 	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=4D388D666204E242A88EB7C3FABADFF9/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=4D388D666204E242A88EB7C3FABADFF9/Categories/=Imported_002011_002F1_002F2014/@EntryIndexedValue">Imported 11/1/2014</s:String>
 	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=4D388D666204E242A88EB7C3FABADFF9/Description/@EntryValue">Auth Talk Overloads for refresh tokens</s:String>
 	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=4D388D666204E242A88EB7C3FABADFF9/Reformat/@EntryValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=4D388D666204E242A88EB7C3FABADFF9/Scope/=139FF4CE89E7094686FDA7BF5FFBBE92/@KeyIndexDefined">True</s:Boolean>
@@ -134,7 +160,79 @@
             context.Validated(ticket);&#xD;
 &#xD;
         }</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6CC70F9BF9876A4E97F368A8659C10BE/@KeyIndexDefined">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6CC70F9BF9876A4E97F368A8659C10BE/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6CC70F9BF9876A4E97F368A8659C10BE/Categories/=Imported_002011_002F1_002F2014/@EntryIndexedValue">Imported 11/1/2014</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6CC70F9BF9876A4E97F368A8659C10BE/Description/@EntryValue">Auth Talk Sample Data Controller</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6CC70F9BF9876A4E97F368A8659C10BE/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6CC70F9BF9876A4E97F368A8659C10BE/Scope/=139FF4CE89E7094686FDA7BF5FFBBE92/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6CC70F9BF9876A4E97F368A8659C10BE/Scope/=139FF4CE89E7094686FDA7BF5FFBBE92/Type/@EntryValue">Everywhere</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6CC70F9BF9876A4E97F368A8659C10BE/Shortcut/@EntryValue">atsampledatacontroller</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6CC70F9BF9876A4E97F368A8659C10BE/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6CC70F9BF9876A4E97F368A8659C10BE/Text/@EntryValue">    [Authorize]
+    public class SampleDataController : ApiController
+    {
+        public IHttpActionResult Get()
+        {
+            var result = GetSampleData();
+            var user = User;
+            var inRole = User.IsInRole("RoleB");
+            return Ok(result);
+        }
+
+        public IHttpActionResult Get(int id)
+        {
+            var result = GetSampleData().FirstOrDefault(r =&gt; r.Id == id);
+            if (result == null)
+            {
+                return BadRequest("No sample data found");
+            }
+
+            return Ok(result);
+        }
+
+
+        private IList&lt;SampleData&gt; GetSampleData()
+        {
+            var sample = new List&lt;SampleData&gt;();
+
+            for (int i = 1; i &lt;= 10; i++)
+            {
+                sample.Add(new SampleData
+                           {
+                               Id = i,
+                               Value = string.Format("Sample value for id of {0}", i)
+                           });
+            }
+
+            return sample;
+        }
+    }
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Value { get; set; }
+    }
+
+</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6D9FE2BC1B0D0A45A3EBD94D86A4F92E/@KeyIndexDefined">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6D9FE2BC1B0D0A45A3EBD94D86A4F92E/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6D9FE2BC1B0D0A45A3EBD94D86A4F92E/Categories/=Imported_002011_002F1_002F2014/@EntryIndexedValue">Imported 11/1/2014</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6D9FE2BC1B0D0A45A3EBD94D86A4F92E/Description/@EntryValue">Auth Talk Startup Config</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6D9FE2BC1B0D0A45A3EBD94D86A4F92E/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6D9FE2BC1B0D0A45A3EBD94D86A4F92E/Scope/=139FF4CE89E7094686FDA7BF5FFBBE92/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6D9FE2BC1B0D0A45A3EBD94D86A4F92E/Scope/=139FF4CE89E7094686FDA7BF5FFBBE92/Type/@EntryValue">Everywhere</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6D9FE2BC1B0D0A45A3EBD94D86A4F92E/Shortcut/@EntryValue">atstartupconfig</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6D9FE2BC1B0D0A45A3EBD94D86A4F92E/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6D9FE2BC1B0D0A45A3EBD94D86A4F92E/Text/@EntryValue">public void Configuration(IAppBuilder app)&#xD;
+        {&#xD;
+            HttpConfiguration config = new HttpConfiguration();&#xD;
+            WebApiConfiguration.Register(config);&#xD;
+            app.UseWebApi(config);&#xD;
+        }</s:String>
 	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=724F11309D284C4BAF68548D8EA0E3AD/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=724F11309D284C4BAF68548D8EA0E3AD/Categories/=Imported_002011_002F1_002F2014/@EntryIndexedValue">Imported 11/1/2014</s:String>
 	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=724F11309D284C4BAF68548D8EA0E3AD/Shortcut/@EntryValue">atdemogrant</s:String>
 	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=724F11309D284C4BAF68548D8EA0E3AD/Description/@EntryValue">Auth Talk Demo basic grant and client</s:String>
 	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=724F11309D284C4BAF68548D8EA0E3AD/Text/@EntryValue">public override Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)&#xD;
@@ -161,4 +259,432 @@
 	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=724F11309D284C4BAF68548D8EA0E3AD/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=724F11309D284C4BAF68548D8EA0E3AD/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=724F11309D284C4BAF68548D8EA0E3AD/Scope/=139FF4CE89E7094686FDA7BF5FFBBE92/@KeyIndexDefined">True</s:Boolean>
-	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=724F11309D284C4BAF68548D8EA0E3AD/Scope/=139FF4CE89E7094686FDA7BF5FFBBE92/Type/@EntryValue">Everywhere</s:String></wpf:ResourceDictionary>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=724F11309D284C4BAF68548D8EA0E3AD/Scope/=139FF4CE89E7094686FDA7BF5FFBBE92/Type/@EntryValue">Everywhere</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=76A4BA7130EF1C48BBA0EC209D2394C1/@KeyIndexDefined">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=76A4BA7130EF1C48BBA0EC209D2394C1/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=76A4BA7130EF1C48BBA0EC209D2394C1/Description/@EntryValue">Auth Talk Custom Authorization Server Provider</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=76A4BA7130EF1C48BBA0EC209D2394C1/Field/=NameSpace/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=76A4BA7130EF1C48BBA0EC209D2394C1/Field/=NameSpace/Expression/@EntryValue">fileDefaultNamespace()</s:String>
+	
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=76A4BA7130EF1C48BBA0EC209D2394C1/Field/=NameSpace/Order/@EntryValue">1</s:Int64>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=76A4BA7130EF1C48BBA0EC209D2394C1/Field/=NameSpaceUsing/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=76A4BA7130EF1C48BBA0EC209D2394C1/Field/=NameSpaceUsing/Expression/@EntryValue">getDefaultNamespace()</s:String>
+	
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=76A4BA7130EF1C48BBA0EC209D2394C1/Field/=NameSpaceUsing/Order/@EntryValue">0</s:Int64>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=76A4BA7130EF1C48BBA0EC209D2394C1/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=76A4BA7130EF1C48BBA0EC209D2394C1/Scope/=139FF4CE89E7094686FDA7BF5FFBBE92/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=76A4BA7130EF1C48BBA0EC209D2394C1/Scope/=139FF4CE89E7094686FDA7BF5FFBBE92/Type/@EntryValue">Everywhere</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=76A4BA7130EF1C48BBA0EC209D2394C1/Shortcut/@EntryValue">atcustomauthserverprovider</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=76A4BA7130EF1C48BBA0EC209D2394C1/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=76A4BA7130EF1C48BBA0EC209D2394C1/Text/@EntryValue">using System.Collections.Generic;&#xD;
+using System.Linq;&#xD;
+using System.Security.Claims;&#xD;
+using System.Threading.Tasks;&#xD;
+using  $NameSpaceUsing$.Datasource;&#xD;
+using Microsoft.Owin.Security;&#xD;
+using Microsoft.Owin.Security.OAuth;&#xD;
+&#xD;
+namespace $NameSpace$&#xD;
+{&#xD;
+    public class CustomAuthorizationServerProvider : OAuthAuthorizationServerProvider&#xD;
+    {&#xD;
+        public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)&#xD;
+        {&#xD;
+            string clientId;&#xD;
+            string clientSecret;&#xD;
+&#xD;
+            if (!context.TryGetBasicCredentials(out clientId, out clientSecret))&#xD;
+            {&#xD;
+                context.TryGetFormCredentials(out clientId, out clientSecret);&#xD;
+            }&#xD;
+&#xD;
+            if (context.ClientId == null)&#xD;
+            {&#xD;
+                context.SetError("invalid_clientId", "Client ID is required.");&#xD;
+                return;&#xD;
+            }&#xD;
+            var client = await SimpleIdentityManager.FindClientAsync(clientId);&#xD;
+            if (client == null)&#xD;
+            {&#xD;
+                context.SetError("invalid_clientId", "Client is not registered.");&#xD;
+                return;&#xD;
+            }&#xD;
+&#xD;
+            if (client.ApplicationType == ApplicationTypes.NativeClient)&#xD;
+            {&#xD;
+                if (string.IsNullOrWhiteSpace(clientSecret))&#xD;
+                {&#xD;
+                    context.SetError("invalid_clientId", "Client Secret was not provided.");&#xD;
+                    return;&#xD;
+                }&#xD;
+&#xD;
+                if (client.Secret != PasswordHelper.HashString(clientSecret))&#xD;
+                {&#xD;
+                    context.SetError("invalid_clientId", "Client Secret is invalid.");&#xD;
+                    return;&#xD;
+                }&#xD;
+            }&#xD;
+&#xD;
+            if (!client.Active)&#xD;
+            {&#xD;
+                context.SetError("invalid_clientId", "Client is inactive.");&#xD;
+                return;&#xD;
+            }&#xD;
+&#xD;
+            context.OwinContext.Set&lt;string&gt;("as:clientAllowedOrigin", client.AllowedOrigin);&#xD;
+            context.OwinContext.Set&lt;string&gt;("as:clientRefreshTokenLifeTime", client.RefreshTokenLifeTime.ToString());&#xD;
+&#xD;
+            context.Validated();&#xD;
+        }&#xD;
+&#xD;
+        public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)&#xD;
+        {&#xD;
+            var allowedOrigin = (context.OwinContext.Get&lt;string&gt;("as:clientAllowedOrigin")) ?? "*";&#xD;
+            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] {allowedOrigin});&#xD;
+&#xD;
+            // validate user here&#xD;
+            var user = await SimpleIdentityManager.ValidateUserAsync(context.UserName, context.Password);&#xD;
+            if (user == null)&#xD;
+            {&#xD;
+                context.SetError("invalid_grant", "The user name or password are incorrect.");&#xD;
+                return;&#xD;
+            }&#xD;
+&#xD;
+            // if successful add all claims for user&#xD;
+            var claims = new ClaimsIdentity(context.Options.AuthenticationType);&#xD;
+            claims.AddClaim(new Claim("sub", context.UserName));&#xD;
+            foreach (var role in user.Roles)&#xD;
+            {&#xD;
+                claims.AddClaim(new Claim(ClaimTypes.Role, role));&#xD;
+            }&#xD;
+&#xD;
+            var props = new AuthenticationProperties(new Dictionary&lt;string, string&gt;&#xD;
+            {&#xD;
+                {&#xD;
+                    "as:client_id", context.ClientId ?? string.Empty&#xD;
+                },&#xD;
+                {&#xD;
+                    "userName", context.UserName&#xD;
+                }&#xD;
+            });&#xD;
+            var ticket = new AuthenticationTicket(claims, props);&#xD;
+&#xD;
+            context.Validated(ticket);&#xD;
+&#xD;
+        }&#xD;
+&#xD;
+&#xD;
+    }&#xD;
+}&#xD;
+</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=D39C9924B9741F4395DF62C51FDEAE87/@KeyIndexDefined">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=D39C9924B9741F4395DF62C51FDEAE87/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=D39C9924B9741F4395DF62C51FDEAE87/Categories/=Imported_002011_002F1_002F2014/@EntryIndexedValue">Imported 11/1/2014</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=D39C9924B9741F4395DF62C51FDEAE87/Description/@EntryValue">Auth Talk Web Api Config</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=D39C9924B9741F4395DF62C51FDEAE87/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=D39C9924B9741F4395DF62C51FDEAE87/Scope/=139FF4CE89E7094686FDA7BF5FFBBE92/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=D39C9924B9741F4395DF62C51FDEAE87/Scope/=139FF4CE89E7094686FDA7BF5FFBBE92/Type/@EntryValue">Everywhere</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=D39C9924B9741F4395DF62C51FDEAE87/Shortcut/@EntryValue">atwebapiconfig</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=D39C9924B9741F4395DF62C51FDEAE87/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=D39C9924B9741F4395DF62C51FDEAE87/Text/@EntryValue">public static class WebApiConfiguration&#xD;
+    {&#xD;
+        public static void Register(HttpConfiguration configuration)&#xD;
+        {&#xD;
+            configuration.MapHttpAttributeRoutes();&#xD;
+            configuration.Routes.MapHttpRoute(&#xD;
+                name: "DefaultApi",&#xD;
+                routeTemplate: "api/{controller}/{id}",&#xD;
+                defaults: new {id = RouteParameter.Optional});&#xD;
+&#xD;
+            var jsonFormatter = configuration.Formatters.OfType&lt;JsonMediaTypeFormatter&gt;().First();&#xD;
+            jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();&#xD;
+        }&#xD;
+    }</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F7FB3069DF0F1F44812E2E5DD766D32D/@KeyIndexDefined">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F7FB3069DF0F1F44812E2E5DD766D32D/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F7FB3069DF0F1F44812E2E5DD766D32D/Categories/=Imported_002011_002F1_002F2014/@EntryIndexedValue">Imported 11/1/2014</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F7FB3069DF0F1F44812E2E5DD766D32D/Description/@EntryValue">Auth Talk Simple Datasource</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F7FB3069DF0F1F44812E2E5DD766D32D/Field/=NameSpace/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F7FB3069DF0F1F44812E2E5DD766D32D/Field/=NameSpace/Expression/@EntryValue">fileDefaultNamespace()</s:String>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F7FB3069DF0F1F44812E2E5DD766D32D/Field/=NameSpace/InitialRange/@EntryValue">-1</s:Int64>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F7FB3069DF0F1F44812E2E5DD766D32D/Field/=NameSpace/Order/@EntryValue">0</s:Int64>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F7FB3069DF0F1F44812E2E5DD766D32D/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F7FB3069DF0F1F44812E2E5DD766D32D/Scope/=139FF4CE89E7094686FDA7BF5FFBBE92/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F7FB3069DF0F1F44812E2E5DD766D32D/Scope/=139FF4CE89E7094686FDA7BF5FFBBE92/Type/@EntryValue">Everywhere</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F7FB3069DF0F1F44812E2E5DD766D32D/Shortcut/@EntryValue">atsimpledatasource</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F7FB3069DF0F1F44812E2E5DD766D32D/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F7FB3069DF0F1F44812E2E5DD766D32D/Text/@EntryValue">using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Threading.Tasks;
+
+namespace $NameSpace$
+{
+    public class SimpleDatasourceContext : DbContext
+    {
+        public DbSet&lt;User&gt; Users { get; set; }
+        public DbSet&lt;Client&gt; Clients { get; set; }
+        public DbSet&lt;RefreshToken&gt; RefreshTokens { get; set; } 
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity&lt;User&gt;().HasKey(k =&gt; k.UserName);
+        }
+    }
+
+    public class User
+    {
+        public string UserName { get; set; }
+        public string PasswordHash { get; set; }
+        public string HashSalt { get; set; }
+        public bool Active { get; set; }
+        public string Roles { get; set; }
+    }
+
+    public enum ApplicationTypes
+    {
+        WebClient,
+        NativeClient
+    }
+
+    public class Client
+    {
+        public string Id { get; set; }
+        public string Secret { get; set; }
+        public string Name { get; set; }
+        public ApplicationTypes ApplicationType { get; set; }
+        public bool Active { get; set; }
+        public int RefreshTokenLifeTime { get; set; }
+
+        public string AllowedOrigin { get; set; }
+    }
+
+    public class RefreshToken
+    {
+        
+        public string Id { get; set; }
+        public string Subject { get; set; }
+        public string ClientId { get; set; }
+        public DateTime IssuedUtc { get; set; }
+        public DateTime ExpiresUtc { get; set; }
+        public string ProtectedTicket { get; set; }
+    }
+
+    public static class SeedHelper 
+    {
+        public static void SeedDatabase(SimpleDatasourceContext context)
+        {
+            SeedUsers(context);
+            SeedClients(context);
+        }
+
+        private static void SeedUsers(SimpleDatasourceContext context)
+        {
+            context.Users.AddOrUpdate(GenerateUser("Admin", "123abc", "admin"));
+            context.Users.AddOrUpdate(GenerateUser("User01", "123abc", "RoleA;RoleD"));
+            context.Users.AddOrUpdate(GenerateUser("User02", "123abc", "RoleB;RoleC"));
+
+        }
+
+        private static void SeedClients(SimpleDatasourceContext context)
+        {
+            context.Clients.AddOrUpdate(new Client
+                                {
+                                    Id = "WebClient01",
+                                    Secret = PasswordHelper.HashString("webclientsecret"),
+                                    Name = "Web Client 01",
+                                    ApplicationType = ApplicationTypes.WebClient,
+                                    Active = true,
+                                    RefreshTokenLifeTime = 3,
+                                    AllowedOrigin = "*"
+                                });
+
+            context.Clients.AddOrUpdate(new Client
+            {
+                Id = "NativeClient01",
+                Secret = PasswordHelper.HashString("nativeclientsecret"),
+                Name = "Web Client 01",
+                ApplicationType = ApplicationTypes.NativeClient,
+                Active = true,
+                RefreshTokenLifeTime = 3,
+                AllowedOrigin = "*"
+            });
+        }
+
+        private static User GenerateUser(string userName, string password, string roles)
+        {
+            var salt = PasswordHelper.GenerateRandomSalt(16);
+
+            return new User
+                   {
+                       UserName = userName,
+                       HashSalt = salt,
+                       PasswordHash = PasswordHelper.HashPassword(password, salt),
+                       Active = true,
+                       Roles = roles
+                   };
+        }
+    }
+
+    public static class PasswordHelper
+    {
+        public static string GenerateRandomSalt(int size)
+        {
+            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+            byte[] buffer = new byte[size];
+
+            rng.GetBytes(buffer);
+
+            return Convert.ToBase64String(buffer);
+        }
+
+        public static string HashPassword(string password, string salt)
+        {
+            HashAlgorithm hashAlgorithm = new SHA256CryptoServiceProvider();
+            byte[] byteValue = System.Text.Encoding.UTF8.GetBytes(string.Format("{0}{1}", password, salt));
+            byte[] byteHash = hashAlgorithm.ComputeHash(byteValue);
+
+            return Convert.ToBase64String(byteHash);
+        }
+
+        public static string HashString(string secret)
+        {
+            HashAlgorithm hashAlgorithm = new SHA256CryptoServiceProvider();
+            byte[] byteValue = System.Text.Encoding.UTF8.GetBytes(secret);
+            byte[] byteHash = hashAlgorithm.ComputeHash(byteValue);
+
+            return Convert.ToBase64String(byteHash);
+        }
+    }
+
+    public class SimpleIdentityManager
+    {
+        public async static Task&lt;UserInfo&gt; ValidateUserAsync(string userName, string password)
+        {
+            using (SimpleDatasourceContext context = new SimpleDatasourceContext())
+            {
+                var user = await context.Users.FirstOrDefaultAsync(u =&gt; u.UserName == userName &amp;&amp; u.Active);
+                if (user != null)
+                {
+                    var hashPassword = PasswordHelper.HashPassword(password, user.HashSalt);
+                    if (hashPassword == user.PasswordHash)
+                    {
+                        return UserInfo.FromUser(user);
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        public async static Task&lt;UserInfo&gt; FindUserAsync(string userName)
+        {
+            using (SimpleDatasourceContext context = new SimpleDatasourceContext())
+            {
+                var user = await context.Users.FirstOrDefaultAsync(u =&gt; u.UserName == userName &amp;&amp; u.Active);
+                if (user != null)
+                {
+                    return UserInfo.FromUser(user);
+                }
+            }
+
+            return null;
+        }
+
+        public static async Task&lt;Client&gt; FindClientAsync(string clientId)
+        {
+            using (SimpleDatasourceContext context = new SimpleDatasourceContext())
+            {
+                return await context.Clients.FirstOrDefaultAsync(c =&gt; c.Id == clientId);
+            }
+        }
+
+        public async static Task&lt;bool&gt; StoreRefreshToken(RefreshToken refreshToken)
+        {
+            using (SimpleDatasourceContext context = new SimpleDatasourceContext())
+            {
+                var oldToken =
+                    context.RefreshTokens.SingleOrDefault(
+                        rt =&gt; rt.Subject == refreshToken.Subject &amp;&amp; rt.ClientId == refreshToken.ClientId);
+                
+                if (oldToken != null)
+                {
+                    context.RefreshTokens.Remove(oldToken);
+                }
+
+                context.RefreshTokens.Add(refreshToken);
+
+                return await context.SaveChangesAsync() &gt; 0;
+            }
+        }
+
+        public async static Task&lt;RefreshToken&gt; FindRefreshToken(string id)
+        {
+            using (SimpleDatasourceContext context = new SimpleDatasourceContext())
+            {
+                return await context.RefreshTokens.FirstOrDefaultAsync(rt =&gt; rt.Id == id);
+            }
+        }
+
+        public async static Task&lt;bool&gt; DeleteRefreshToken(string id)
+        {
+            using (SimpleDatasourceContext context = new SimpleDatasourceContext())
+            {
+                var refreshToken = await context.RefreshTokens.SingleOrDefaultAsync(rt =&gt; rt.Id == id);
+
+                if (refreshToken != null)
+                {
+                    context.RefreshTokens.Remove(refreshToken);
+                    return await context.SaveChangesAsync() &gt; 0;
+                }
+            }
+
+            return false;
+        }
+    }
+
+    public class UserInfo
+    {
+        public string UserName { get; set; }
+        public bool Active { get; set; }
+        public IList&lt;string&gt; Roles { get; set; }
+
+        public static UserInfo FromUser(User user)
+        {
+            return new UserInfo
+                   {
+                       UserName = user.UserName,
+                       Active = user.Active,
+                       Roles = user.Roles.Split(';').ToList()
+                   };
+        }
+    }
+}</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F9385EF0BDF4264D84D4636508DE621E/@KeyIndexDefined">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F9385EF0BDF4264D84D4636508DE621E/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F9385EF0BDF4264D84D4636508DE621E/Description/@EntryValue">Auth Talk Config OAuth method</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F9385EF0BDF4264D84D4636508DE621E/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F9385EF0BDF4264D84D4636508DE621E/Scope/=139FF4CE89E7094686FDA7BF5FFBBE92/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F9385EF0BDF4264D84D4636508DE621E/Scope/=139FF4CE89E7094686FDA7BF5FFBBE92/Type/@EntryValue">Everywhere</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F9385EF0BDF4264D84D4636508DE621E/Shortcut/@EntryValue">atconfigoauth</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F9385EF0BDF4264D84D4636508DE621E/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F9385EF0BDF4264D84D4636508DE621E/Text/@EntryValue">public void ConfigureOAuth(IAppBuilder app)&#xD;
+        {&#xD;
+            OAuthAuthorizationServerOptions oAuthOptions = new OAuthAuthorizationServerOptions&#xD;
+                                                           {&#xD;
+                                                               AllowInsecureHttp = true,&#xD;
+                                                               TokenEndpointPath = new PathString("/token"),&#xD;
+                                                               AccessTokenExpireTimeSpan = TimeSpan.FromSeconds(10),&#xD;
+                                                               //Provider = new CustomAuthorizationServerProvider(),&#xD;
+                                                               //RefreshTokenProvider = new CustomRefreshTokenProvider()&#xD;
+                                                           };&#xD;
+&#xD;
+            app.UseOAuthAuthorizationServer(oAuthOptions);&#xD;
+            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());&#xD;
+        }</s:String></wpf:ResourceDictionary>
