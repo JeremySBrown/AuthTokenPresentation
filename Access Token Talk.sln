@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{8198C073-919A-4FA6-90AD-F62AC8062E51}"
 EndProject
@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{52E24E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiFinal", "ApiFinal\ApiFinal.csproj", "{6885C1F4-31A6-4429-AD57-1DE1BFB52476}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiPractice01", "ApiPractice01\ApiPractice01.csproj", "{A3950BF5-027B-43EE-AF73-33862094BA72}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{6885C1F4-31A6-4429-AD57-1DE1BFB52476}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6885C1F4-31A6-4429-AD57-1DE1BFB52476}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6885C1F4-31A6-4429-AD57-1DE1BFB52476}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3950BF5-027B-43EE-AF73-33862094BA72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3950BF5-027B-43EE-AF73-33862094BA72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3950BF5-027B-43EE-AF73-33862094BA72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3950BF5-027B-43EE-AF73-33862094BA72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
