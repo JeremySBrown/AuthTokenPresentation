@@ -21,9 +21,7 @@ Database Init:
 <p>You can also do so by Refreshing the APIFinal page after running step 2 from above.</p>
 
 Three users are created during the database setup:
-Admin
-User01
-User02
+Admin, User01, User02
 
 Each user has the same password of 123abc.
 
