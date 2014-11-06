@@ -16,9 +16,9 @@ Running both API Site and Client Site:
 </ol>
 
 
-Database Init:
-The database is generated from Entity Framework Code First, and is generated on the first attempt to connect it. This make take a few seconds to complete.
-You can also do so by Refreshing the APIFinal page after running step 2 from above.
+Database Init:<br />
+<p>The database is generated from Entity Framework Code First, and is generated on the first attempt to connect it. This make take a few seconds to complete.</p>
+<p>You can also do so by Refreshing the APIFinal page after running step 2 from above.</p>
 
 Three users are created during the database setup:
 Admin
